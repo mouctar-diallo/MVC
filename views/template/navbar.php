@@ -5,16 +5,16 @@
 <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
         <li class="nav-item active">
-            <a class="nav-link text-white" href="#">add chambre <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-white" href="<?=URL?>Chambre/index">add chambre <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">liste chambre</a>
+            <a class="nav-link text-white" href="<?=URL?>Chambre/all">liste chambre</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">add student</a>
+            <a class="nav-link text-white" href="<?=URL?>Etudiant/index">add student</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white" href="#">liste student</a>
+            <a class="nav-link text-white" href="<?=URL?>Etudiant/all">liste student</a>
         </li>
     </ul>
 </div>

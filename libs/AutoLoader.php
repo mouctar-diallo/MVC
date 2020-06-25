@@ -18,7 +18,7 @@ class AutoLoader
             }
         });
 
-        /*if(isset($_GET['url']))
+        if(isset($_GET['url']))
         {
             $url = explode('/',filter_var( $_GET['url'],FILTER_SANITIZE_URL));
             $controllerAcharger = ucfirst(strtolower($url[0]))."Controller";
@@ -32,10 +32,10 @@ class AutoLoader
                 }
             }
         }else{
-            $cheminController = "controllers/ProduitController.php";
+            $cheminController = "controllers/ChambreController.php";
             require_once($cheminController);
-            $controllerAcharger = new ProduitController();
-            $controllerAcharger->save();
-        }*/
+            $controllerAcharger = new ChambreController();
+            $controllerAcharger->index();
+        }
     }
 }

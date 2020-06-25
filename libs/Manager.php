@@ -12,7 +12,7 @@ abstract class Manager implements IDao
     private function Openconnexion(){
        if ($this->pdo == null) {
             try {
-                $this->pdo = new PDO("mysql:host=localhost;dbname=academy","root","");
+                $this->pdo = new PDO("mysql:host=localhost;dbname=mvc","root","");
             } catch (PDOException $e ) {
                 die("erreur de connexion");
             }

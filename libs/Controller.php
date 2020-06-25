@@ -10,7 +10,7 @@ class Controller
     public function render()
     {
         $pageAcharger = "views/".$this->dossier."/".$this->view.".php";
-        $layout = "views/layout/".$this->layout.".php";
+        $layout = "views/template/".$this->layout.".php";
         ob_start();
             extract($this->send_data_to_view);
             require_once($pageAcharger);
