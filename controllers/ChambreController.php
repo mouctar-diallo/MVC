@@ -1,9 +1,7 @@
 <?php
 
-
 class ChambreController extends Controller
 {
-
     public function __construct()
     {
         $this->dossier = "chambre";
@@ -17,18 +15,30 @@ class ChambreController extends Controller
     }
     public function save()
     {
-        echo "ugilk";
         if (isset($_POST['enregistrer'])) {
-            var_dump($_POST);die();
             extract($_POST);
-            $this->validator->isVide($type,"type","type is required");
-            $this->validator->isVide($numero,"numero","numero is required");
-            if($this->validator->isValid()){
-
+            $this->dao = new ChambreDao();
+            if ($type=="") {
+                $this->send_data_to_view["error"] = 'type is required';
+            }elseif ($numero == "") {
+                $this->send_data_to_view["error"] = 'numero batiment is required';
+            }else{
+                $house = [
+                    'numero_batiment'=> $numero,
+                    'type'=>$type
+                ];
+                $ch = new Chambre();
+                $ch = $house;
+                //generate  numero chambre
+                $ch['numero']= $this->dao->generateNumeroChambre($ch);
+                $this->dao->save($ch);
+                $this->index();
             }
-        }else{
-            var_dump($_POST);die();
+            
+        } else {
+            $this->index();
         }
+        
     }
     public function all()
     {

@@ -62,4 +62,9 @@ abstract class Manager implements IDao
       $result = $this->executeMaj($sql);
       return count($result)!=0;
     }
+
+    public function preparer($sql){
+        $this->Openconnexion();
+        return $this->pdo->prepare($sql);
+    }
 }

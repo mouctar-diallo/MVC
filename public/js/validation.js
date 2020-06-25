@@ -1,16 +1,18 @@
 $(document).ready(function(){
-    //validation chambre
-    function validForChambre()
+    //validation chambr
+    function validFormChambre()
     {
-        $('#save-chambre').click(function(e){
-            e.preventDefault();
+        $('#save-chambre').submit(function(e){
+            
            const type = $('#type').val();
            const numero = $('#numero').val();
            if(type == ""){
                $('#error-type').html('ce champ est obligatoire');
+               e.preventDefault();
            }
            if (numero == "") {
                 $('#error-numero').html('ce champ est obligatoire');
+                e.preventDefault();
            }
            $('#type').keyup(function(){
                 $('#error-type').html(' ');
@@ -20,6 +22,7 @@ $(document).ready(function(){
            });
           
         })
+        
     }
     //validation etudiant
     function valideEtudiant()
@@ -55,7 +58,7 @@ $(document).ready(function(){
         });
     }
 
-     validForChambre();
+     validFormChambre();
      valideEtudiant();
         
 })

@@ -6,6 +6,8 @@ class Controller
     protected $dossier;
     protected $layout;
     protected $send_data_to_view=[];
+    protected $validator;
+    protected $dao;
 
     public function render()
     {
