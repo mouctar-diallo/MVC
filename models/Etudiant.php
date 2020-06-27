@@ -9,6 +9,7 @@ class Etudiant implements IInit
     protected $email;
     protected $telephone;
     protected $datenaiss;
+    protected $type;
 
     public function __construct($array=null)
     {
@@ -18,14 +19,16 @@ class Etudiant implements IInit
     }
     public function init($array)
     {
-        $this->id = $array['id'];
         $this->matricule = $array['matricule'];
         $this->nom = $array['nom'];
         $this->prenom = $array['prenom'];
         $this->email = $array['email'];
         $this->telephone = $array['telephone'];
         $this->datenaiss = $array['datenaiss'];
+        $this->type = $array['type'];
     }
+    
+   
     public function getId()
     {
         return $this->id;
@@ -94,5 +97,16 @@ class Etudiant implements IInit
     public function setDatenaiss($datenaiss)
     {
         $this->datenaiss = $datenaiss;
+    }
+
+
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }

@@ -3,24 +3,27 @@
     <table class="table table-stripped table-bordered table hover mt-2" id="table-chambre">
         <thead>
             <tr>
-                <td>#</td>
-                <td>numero</td>
-                <td>type</td>
-                <td>numero batiment</td>
-                <td>action</td>
+                <td class="bg-info">#</td>
+                <td class="bg-info">numero</td>
+                <td class="bg-info">type</td>
+                <td class="bg-info">numero batiment</td>
+                <td class="bg-info">action</td>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>ch 1</td>
-                <td>type</td>
-                <td>1</td>
-                <td class="text-center">
-                    <a href="" class="btn btn-danger">delete</a>
-                    <a href="" class="btn btn-primary">edit</a>
-                </td>
-            </tr>
+        <?php 
+            foreach ($chambres as $ch) { ?>
+                <tr>
+                    <td><?= $ch->getId_Chambre()?></td>
+                    <td><?= $ch->getNumero()?></td>
+                    <td><?= $ch->getType()?></td>
+                    <td><?= $ch->getNumero_batiment()?></td>
+                    <td class="text-center">
+                        <a href="<?=URL?>Chambre/delete/<?php echo $ch->getId_Chambre()?>" class="btn btn-danger">delete</a>
+                        <a href="<?=URL?>Chambre/edit?id=<?=$ch->getId_Chambre()?>" class="btn btn-primary">edit</a>
+                    </td>
+                </tr><?php
+            }?> 
         </tbody>
     </table>
 </div>

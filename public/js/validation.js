@@ -38,19 +38,14 @@ $(document).ready(function(){
         }
         document.getElementById('form').addEventListener('submit',function(e){
             var inputs = document.getElementsByTagName('input');
-            var erreur = false;
-            const  numero_chambre = $('#numero_chambre').val();
-            if (numero_chambre==0) {
-                $('#errorx').html('ce champ est obligatoire');
-            }
             for (input of inputs) {
                 if (input.hasAttribute('error')) {
                     var span = input.getAttribute('error');
                     if (!input.value) {
-                        document.getElementById(span).innerText="ce champ est obligatoire"
+                        document.getElementById(span).innerText="ce champ est obligatoire";
                         e.preventDefault();
                     }else{
-                        document.getElementById(span).innerText=" "
+                        document.getElementById(span).innerText=" ";
                     }
                 }
             }
@@ -59,7 +54,6 @@ $(document).ready(function(){
     }
 
      validFormChambre();
-     valideEtudiant();
-        
+     valideEtudiant();  
 })
 

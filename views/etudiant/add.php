@@ -3,7 +3,7 @@
     <h2 class="text-center mt-5">ajouter un etudiant</h2>
     </div>
     <div class="align-items-center justify-content-center d-flex mt-2">
-        <form action="" method="post" id="form">
+        <form action="<?=URL?>Etudiant/save" method="post" id="form">
             <div class="row">
                     <div class="col-6">
                     <label for="nom" class="control-label w-100">nom</label>
@@ -25,9 +25,10 @@
                     <span class="alert-danger text-danger" id="error-5"></span>
                     <label for="typeEt" class="control-label w-100">type etudiant</label>
                     <select name="typeEt" id="typeEt" class="form-control">
-                        <option value="simple">simple</option>
-                        <option value="boursier">boursier logé</option>
-                        <option value="boursier">boursier non logé</option>
+                        <option value="0">choisissez le type</option>
+                        <option value="NB">simple</option>
+                        <option value="BL">boursier logé</option>
+                        <option value="BNL">boursier non logé</option>
                     </select>
                    <div id="typebourse" style="display:none;">
                     <label for="bourse" class="control-label w-100">type bourse</label>
@@ -39,11 +40,12 @@
                    <div id="numero_chambre" style="display:none;">
                     <label for="bourse" class="control-label w-100">numero chambre</label>
                         <select name="numero_chambre" id="numero_chambre" class="form-control">
-                            <option value="0">choisissez numero chambre</option>
-                            <option value="demi">ch1</option>
-                            <option value="demi">ch2</option>
+                            <?php
+                                foreach ($chambres as $chambre) {?>
+                                    <option value="<?= $chambre->getNumero();?>"><?= $chambre->getNumero();?></option><?php
+                                }?>
                         </select>
-                        <span class="alert-danger text-danger" id="errorx"></span>
+                        <!--<span class="alert-danger text-danger" id="errorx"></span>-->
                    </div>
                    <div id="adresse" style="display:none;">
                         <label for="adresse" class="control-label w-100">adresse</label>
@@ -56,3 +58,22 @@
         </form>
     </div>
 </div>
+ <script>
+    $("#typeEt").on('change', function(){
+        const type = $('#typeEt').val();
+        if(type == 'NB'){
+            $("#adresse").show();
+            $("#numero_chambre").hide();
+            $("#typebourse").hide();
+        }
+        else if(type == 'BNL'){
+            $("#adresse").show();
+            $("#typebourse").show();
+            $("#numero_chambre").hide();
+        }else if(type == 'BL'){
+            $("#adresse").hide();
+            $("#numero_chambre").show();
+            $("#typebourse").show();
+        }
+    })
+ </script>

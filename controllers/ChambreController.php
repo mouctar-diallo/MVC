@@ -2,6 +2,7 @@
 
 class ChambreController extends Controller
 {
+    
     public function __construct()
     {
         $this->dossier = "chambre";
@@ -10,6 +11,10 @@ class ChambreController extends Controller
 
     public function index()
     {
+        $chambre = new ChambreDao();
+        $result= $chambre->all();
+        $this->send_data_to_view["chambres"] = $result;
+        
         $this->view = "add";
         $this->render();
     }
@@ -42,8 +47,18 @@ class ChambreController extends Controller
     }
     public function all()
     {
+        $chambre = new ChambreDao();
+        $result= $chambre->all();
+        $this->send_data_to_view["chambres"] = $result;
         $this->view = "list";
         $this->render();
+    }
+    
+    public function delete($id)
+    {  
+        $chambre = new ChambreDao(); 
+        $chambre->delet($id);
+        $this->all();
     }
 
 }

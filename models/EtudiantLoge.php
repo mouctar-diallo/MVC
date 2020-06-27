@@ -26,4 +26,15 @@ class EtudiantLoge extends Etudiant
     {
         $this->numero_chambre = $numero_chambre;
     }
+
+    
+    public function getTypeBourse()
+    {
+        return $this->typeBourse;
+    }
+
+    public function setTypeBourse($typeBourse)
+    {
+        $this->typeBourse = $typeBourse;
+    }
 }

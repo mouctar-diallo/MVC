@@ -58,7 +58,7 @@ abstract class Manager implements IDao
     }
     //suppression 
     public function delete($id){
-      $sql = "delete from $this->tableName where id = $id";
+      $sql = "DELETE FROM $this->tableName where id = $id";
       $result = $this->executeMaj($sql);
       return count($result)!=0;
     }

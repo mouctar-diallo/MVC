@@ -5,7 +5,10 @@
     <div class="align-items-center justify-content-center d-flex mt-5">
         <form action="<?= URL ?>Chambre/save" method="post" id="save-chambre" >
             <label for="type" class="control-label">type chambre</label>
-            <input type="text" name="type" class="form-control" id="type">
+            <select name="type" id="type" class="form-control">
+                <option value="individuel">chambre simple</option>
+                <option value="double">chample double</option>
+            </select>
             <small class="alert-danger text-danger" id="error-type"></small>
             <label for="numero" class="control-label w-100">numero batiment</label>
             <input type="number" name="numero" class="form-control" id="numero">

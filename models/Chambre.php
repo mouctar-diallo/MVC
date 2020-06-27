@@ -28,7 +28,7 @@ class Chambre implements IInit
 
     public function getId_Chambre()
     {
-        return $this->numero;
+        return $this->id_chambre;
     }
     public function getNumero()
     {
