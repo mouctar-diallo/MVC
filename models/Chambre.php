@@ -15,7 +15,7 @@ class Chambre implements IInit
     }
     public function init($array)
     {
-        $this->id_chambre = $array['id_chambre'];
+        $this->id_chambre = $array['id'];
         $this->numero = $array['numero'];
         $this->type = $array['type'];
         $this->numero_batiment = $array['numero_batiment'];

@@ -9,7 +9,7 @@ abstract class Manager implements IDao
 
 
     //connexion
-    private function Openconnexion(){
+    public function Openconnexion(){
        if ($this->pdo == null) {
             try {
                 $this->pdo = new PDO("mysql:host=localhost;dbname=mvc","root","");
@@ -39,6 +39,14 @@ abstract class Manager implements IDao
         $req = $this->pdo->query($sql);
         $donnees = [];
         while ($result = $req->fetch()) {
+            $type = $result['type'];
+            if($type == 'NB'){
+                $this->className = 'EtudiantNB';
+            }else if($type == 'BL'){
+                $this->className = 'EtudiantLoge';
+            }else if($type == 'BNL'){
+                $this->className = 'EtudiantNl';
+            }
             $donnees[] = new $this->className($result);
         }
         $this->closeConnexion();

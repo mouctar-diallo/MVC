@@ -14,7 +14,6 @@ class ChambreController extends Controller
         $chambre = new ChambreDao();
         $result= $chambre->all();
         $this->send_data_to_view["chambres"] = $result;
-        
         $this->view = "add";
         $this->render();
     }
@@ -28,14 +27,16 @@ class ChambreController extends Controller
             }elseif ($numero == "") {
                 $this->send_data_to_view["error"] = 'numero batiment is required';
             }else{
-                $house = [
+                $chambre = [
+                    'id'=> null,
                     'numero_batiment'=> $numero,
                     'type'=>$type
                 ];
-                $ch = new Chambre();
-                $ch = $house;
+                
                 //generate  numero chambre
-                $ch['numero']= $this->dao->generateNumeroChambre($ch);
+                $chambre['numero']= $this->dao->generateNumeroChambre($chambre);
+                $ch = new Chambre($chambre);
+               
                 $this->dao->save($ch);
                 $this->index();
             }
@@ -53,12 +54,31 @@ class ChambreController extends Controller
         $this->view = "list";
         $this->render();
     }
-    
-    public function delete($id)
+    public function update()
+    {
+        if (isset($_POST['id']) && isset($_POST['value']) && isset($_POST['cible'])) 
+        {
+            $id_chambre = $_POST['id'];
+            $newValue = $_POST['value'];
+            $cible = $_POST['cible'];
+             
+            $this->dao = new ChambreDao();
+            if ($this->dao->edit($id_chambre,$cible,$newValue)) {
+                echo "$cible modifié avec succès";
+            }
+        }
+    }
+    public function delete()
     {  
-        $chambre = new ChambreDao(); 
-        $chambre->delet($id);
-        $this->all();
+        if (isset($_POST['id'])) 
+        {
+            $id_chambre = $_POST['id'];
+            $this->dao = new ChambreDao(); 
+            if ($this->dao->delete($id_chambre)) 
+            {
+                echo "supprimer";
+            }
+        }
     }
 
 }

@@ -15,7 +15,7 @@ class EtudiantLoge extends Etudiant
     {
         parent::init($array);
         $this->numero_chambre = $array['numero_chambre'];
-        $this->typeBourse = $array['typeBourse'];
+        $this->typeBourse = $array['bourse'];
     }
     public function getNumero_chambre()
     {

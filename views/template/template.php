@@ -26,6 +26,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="<?=URL?>public/dataTables/media/js/jquery.js"></script>
     <script src="<?=URL?>public/dataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="<?=URL?>public/js/ajax.js"></script>
+    <script src="<?=URL?>public/js/scroll.js"></script>
     <script src="<?=URL?>public/js/validation.js"></script>
   </body>
 </html>

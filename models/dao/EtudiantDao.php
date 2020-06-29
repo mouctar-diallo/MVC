@@ -29,10 +29,21 @@ class EtudiantDao extends Manager
        }
     }
 
+    function edit($id_etudiant,$cible,$attribut)
+    {
+        $test =false;
+        $sql =  $this->preparer("UPDATE etudiant SET $cible = ? WHERE id = ?");
+        $result=$sql->execute(array($attribut,$id_etudiant));
+        if ($result == 1) {
+            $test =  true;
+        }
+        return $test;
+    }
+
     public function update($obj){
 
     }
-
+    //genere matricule de l'etudiant
     function generateMatricule($et){
         $matricule = date('Y').'-'.strtoupper(substr($et['nom'],0,2)).
             '-'.strtoupper(substr($et['prenom'],-2)).'-'.sprintf("%04d",rand(0,1000));

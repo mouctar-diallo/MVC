@@ -8,14 +8,24 @@ class ChambreDao extends Manager
     }
     
     public function save($obj){
-        extract($obj);
+
         $sql = $this->preparer("INSERT into $this->tableName values(null,?,?,?)");  
-        $row = $sql->execute(array($numero,$type,$numero_batiment));
+        $row = $sql->execute(array($obj->getNumero(),$obj->getType(),$obj->getNumero_batiment()));
        if($row!=0){
            return true;
        }else {
            return false;
        }
+    }
+    function edit($id_chambre,$cible,$attribut)
+    {
+        $test =false;
+        $sql =  $this->preparer("UPDATE chambre SET $cible = ? WHERE id = ?");
+        $result=$sql->execute(array($attribut,$id_chambre));
+        if ($result == 1) {
+            $test =  true;
+        }
+        return $test;
     }
 
     public function update($obj){

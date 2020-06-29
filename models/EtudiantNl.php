@@ -15,7 +15,7 @@ class EtudiantNl extends Etudiant
     {
         parent::init($array);
         $this->adresse = $array['adresse'];
-        $this->typeBourse = $array['typeBourse'];
+        $this->typeBourse = $array['bourse'];
     }
 
     public function getAdresse()

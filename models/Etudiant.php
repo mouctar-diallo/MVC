@@ -19,6 +19,7 @@ class Etudiant implements IInit
     }
     public function init($array)
     {
+        $this->id = $array['id'];
         $this->matricule = $array['matricule'];
         $this->nom = $array['nom'];
         $this->prenom = $array['prenom'];

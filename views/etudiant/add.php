@@ -39,7 +39,7 @@
                    </div>
                    <div id="numero_chambre" style="display:none;">
                     <label for="bourse" class="control-label w-100">numero chambre</label>
-                        <select name="numero_chambre" id="numero_chambre" class="form-control">
+                        <select name="numero_chambre" id="" class="form-control">
                             <?php
                                 foreach ($chambres as $chambre) {?>
                                     <option value="<?= $chambre->getNumero();?>"><?= $chambre->getNumero();?></option><?php
@@ -72,8 +72,8 @@
             $("#numero_chambre").hide();
         }else if(type == 'BL'){
             $("#adresse").hide();
-            $("#numero_chambre").show();
             $("#typebourse").show();
+            $("#numero_chambre").show();
         }
     })
  </script>
