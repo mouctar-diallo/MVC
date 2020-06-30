@@ -25,7 +25,8 @@ $(document).ready(function(){
         
     }
     //validation etudiant
- 
+ function validEtudiant()
+ {
     var inputs = document.getElementsByTagName('input');	
     for (input of inputs) {
         input.addEventListener('keyup',function(e){
@@ -50,8 +51,10 @@ $(document).ready(function(){
         }
         return false;
     });
+ }
 
     validFormChambre();
+    validEtudiant();
      
 })
 

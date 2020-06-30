@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    const URL = "http://mvc-poo.alwaysdata.net/"; 
+    const URL = "http://localhost/sonatel_academy/projet_mvc/"; 
 
     $('.etudiants').click(function(){
         tr = $(this);
