@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 28, 2020 at 03:10 PM
+-- Generation Time: Jun 30, 2020 at 11:19 AM
 -- Server version: 5.7.14
 -- PHP Version: 5.6.25
 
@@ -47,7 +47,7 @@ INSERT INTO `bourse` (`id_bourse`, `type`, `montant`) VALUES
 --
 
 CREATE TABLE `chambre` (
-  `id_chambre` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `numero` varchar(25) NOT NULL,
   `type` varchar(25) NOT NULL,
   `numero_batiment` varchar(25) NOT NULL
@@ -57,13 +57,11 @@ CREATE TABLE `chambre` (
 -- Dumping data for table `chambre`
 --
 
-INSERT INTO `chambre` (`id_chambre`, `numero`, `type`, `numero_batiment`) VALUES
-(2, '001-0077', 'individuel', '1'),
-(3, '002-0059', 'double', '2'),
+INSERT INTO `chambre` (`id`, `numero`, `type`, `numero_batiment`) VALUES
+(2, '001-0077', 'individuel', '3'),
 (4, '003-0023', 'individuel', '3'),
-(9, '008-0027', 'double', '8'),
-(10, '009-0082', 'double', '9'),
-(11, '045-0142', 'individuel', '45');
+(14, '056-0070', 'individuel', '56'),
+(20, '005-0007', 'individuel', '1');
 
 -- --------------------------------------------------------
 
@@ -90,13 +88,13 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `matricule`, `nom`, `prenom`, `email`, `telephone`, `datenaiss`, `type`, `adresse`, `bourse`, `numero_chambre`) VALUES
-(1, '2020-SO-OU-0901', 'Sow', 'Fatou', 'moucfady@gmail.com', '33355555', '2020-06-02', 'NB', 'paris', NULL, NULL),
-(2, '2020-DI-AM-0145', 'diallo', 'mariam', 'p@gmail.com', '77687678', '2020-06-05', 'BNL', 'thies', 'demi', NULL),
 (3, '2020-DI-OU-0820', 'diop', 'ousseynou', 'p@gmail.com', '77687678', '2020-06-10', 'BL', NULL, 'demi', '001-0039'),
-(6, '2020-SO-OU-0973', 'Sow', 'Fatou', 'moucfady@gmail.com', '77687678', '2020-06-16', 'NB', 'ddddd', NULL, NULL),
-(7, '2020-SO-OU-0191', 'Sow', 'Fatou', 'moucfady@gmail.com', '77687678', '2020-06-16', 'NB', 'ddddd', NULL, NULL),
-(8, '2020-DI-AM-0431', 'diallo', 'mariam', 'p@gmail.com', '333', '2020-06-17', 'BNL', 'thies', 'demi', NULL),
-(9, '2020-DI-AM-0850', 'diallo', 'mariam', 'p@gmail.com', '333', '2020-06-17', 'BNL', 'thies', 'demi', NULL);
+(21, '2020-DI-M-0695', 'diallo', 'M', 'p@gmail.com', '77687678', '2020-06-01', 'NB', 'ddddd', NULL, NULL),
+(24, '2020-SO-OU-0886', 'Sow', 'Fatou', 'p@gmail.com', '77687678', '2020-06-16', 'BL', NULL, 'complet', '001-0077'),
+(28, '2020-DI-OU-0999', 'diallo', 'Fatou', 'moucfady@gmail.com', '77687678', '2020-06-10', 'BL', NULL, 'demi', '001-0077'),
+(34, '2020-SO-M-0823', 'Sow', 'M', 'moucfady@gmail.com', '77687678', '2020-06-26', 'BL', NULL, 'complet', '009-0082'),
+(41, '2020-DI-M-0005', 'diallo', 'M', 'p@gmail.com', '77687678', '2020-06-09', 'BNL', 'paris', 'complet', NULL),
+(44, '2020-QQ-QQ-0767', 'QQ', 'QQ', 'HHGT@KADI.com', '77687678', '2020-06-10', 'BNL', 'QQQ', 'complet', NULL);
 
 --
 -- Indexes for dumped tables
@@ -112,7 +110,7 @@ ALTER TABLE `bourse`
 -- Indexes for table `chambre`
 --
 ALTER TABLE `chambre`
-  ADD PRIMARY KEY (`id_chambre`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `etudiant`
@@ -133,12 +131,12 @@ ALTER TABLE `bourse`
 -- AUTO_INCREMENT for table `chambre`
 --
 ALTER TABLE `chambre`
-  MODIFY `id_chambre` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `etudiant`
 --
 ALTER TABLE `etudiant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

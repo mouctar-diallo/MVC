@@ -3,24 +3,25 @@ $(document).ready(function(){
     function validFormChambre()
     {
         $('#save-chambre').submit(function(e){
-            
-           const type = $('#type').val();
-           const numero = $('#numero').val();
-           if(type == ""){
-               $('#error-type').html('ce champ est obligatoire');
-               e.preventDefault();
-           }
-           if (numero == "") {
-                $('#error-numero').html('ce champ est obligatoire');
-                e.preventDefault();
-           }
-           $('#type').keyup(function(){
-                $('#error-type').html(' ');
-           });
-           $('#numero').keyup(function(){
-                $('#error-numero').html(' ');
-           });
-          
+            if (confirm('voulez vous ajouter la chambre')) {
+                const type = $('#type').val();
+                const numero = $('#numero').val();
+                if(type == ""){
+                    $('#error-type').html('ce champ est obligatoire');
+                    e.preventDefault();
+                }
+                if (numero == "") {
+                    $('#error-numero').html('ce champ est obligatoire');
+                    e.preventDefault();
+                }
+                $('#type').keyup(function(){
+                    $('#error-type').html(' ');
+                });
+                $('#numero').keyup(function(){
+                    $('#error-numero').html(' ');
+                });
+            } 
+            return false;
         })
         
     }
