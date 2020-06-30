@@ -8,10 +8,10 @@
                     <div class="col-6">
                     <label for="nom" class="control-label w-100">nom</label>
                     <input type="text" name="nom" error="error-1" class=" form-control" id="nom">
-                    <span class="alert-danger text-danger" id="error-1"></span>
+                    <span class="alert-danger text-danger" id="error-1"><?= @$error['nom']; ?></span>
                     <label for="prenom" class="control-label w-100">prenom</label>
                     <input type="text" name="prenom" error="error-2" class="form-control" id="prenom">
-                    <span class="alert-danger text-danger" id="error-2"></span>
+                    <span class="alert-danger text-danger" id="error-2"><?= @$error['prenom']; ?></span>
                     <label for="email" class="control-label w-100">email</label>
                     <input type="text" name="email" error="error-3" class="form-control" id="email">
                     <span class="alert-danger text-danger" id="error-3"></span>
@@ -30,6 +30,7 @@
                         <option value="BL">boursier logé</option>
                         <option value="BNL">boursier non logé</option>
                     </select>
+                    <span><?= @$error['typeEt']; ?></span>
                    <div id="typebourse" style="display:none;">
                     <label for="bourse" class="control-label w-100">type bourse</label>
                         <select name="typeBourse" id="typeBourse" class="form-control">
@@ -38,15 +39,15 @@
                         </select>
                    </div>
                    <div id="numero_chambre" style="display:none;">
-                    <label for="bourse" class="control-label w-100">numero chambre</label>
-                        <select name="numero_chambre" id="" class="form-control">
+                    <label for="numero_chambre" class="control-label w-100">type bourse</label>
+                        <select name="numero_chambre" id="numero_chambre" class="form-control">
                             <?php
                                 foreach ($chambres as $chambre) {?>
                                     <option value="<?= $chambre->getNumero();?>"><?= $chambre->getNumero();?></option><?php
                                 }?>
                         </select>
-                        <!--<span class="alert-danger text-danger" id="errorx"></span>-->
                    </div>
+                   
                    <div id="adresse" style="display:none;">
                         <label for="adresse" class="control-label w-100">adresse</label>
                         <input type="text" error="error-6" name="adresse" class="form-control" id="adresse">

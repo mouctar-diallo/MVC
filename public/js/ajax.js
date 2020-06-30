@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-    const URL = 'http://localhost/sonatel_academy/projet_mvc/'; 
+    const URL = "http://mvc-poo.alwaysdata.net/"; 
 
     $('.etudiants').click(function(){
         tr = $(this);
@@ -45,6 +45,7 @@ $(document).on('click','.delete',function(){
                  id : id_Chambre,
              },
              success: function(response){
+                 alert(response)
                 if (response=="supprimer") {
                     alert("la chambre a eté supprimer avec succès");
                     //supprimons la ligne correspondante

@@ -68,7 +68,9 @@ abstract class Manager implements IDao
     public function delete($id){
       $sql = "DELETE FROM $this->tableName where id = $id";
       $result = $this->executeMaj($sql);
-      return count($result)!=0;
+        if($result){
+            return true;
+        }
     }
 
     public function preparer($sql){

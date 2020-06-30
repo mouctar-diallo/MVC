@@ -25,35 +25,33 @@ $(document).ready(function(){
         
     }
     //validation etudiant
-    function valideEtudiant()
-    {
-        var inputs = document.getElementsByTagName('input');	
+ 
+    var inputs = document.getElementsByTagName('input');	
+    for (input of inputs) {
+        input.addEventListener('keyup',function(e){
+            if (e.target.hasAttribute('error')) {
+                var span = e.target.getAttribute('error');
+                document.getElementById(span).innerText="";
+            }
+        })
+    }
+    document.getElementById('form').addEventListener('submit',function(e){
+        const inputs = document.getElementsByTagName('input');
         for (input of inputs) {
-            input.addEventListener('keyup',function(e){
-                if (e.target.hasAttribute('error')) {
-                    var span = e.target.getAttribute('error');
-                    document.getElementById(span).innerText="";
-                }
-            })
-        }
-        document.getElementById('form').addEventListener('submit',function(e){
-            var inputs = document.getElementsByTagName('input');
-            for (input of inputs) {
-                if (input.hasAttribute('error')) {
-                    var span = input.getAttribute('error');
-                    if (!input.value) {
-                        document.getElementById(span).innerText="ce champ est obligatoire";
-                        e.preventDefault();
-                    }else{
-                        document.getElementById(span).innerText=" ";
-                    }
+            if (input.hasAttribute('error')) {
+                var span = input.getAttribute('error');
+                if (!input.value) {
+                    document.getElementById(span).innerText="ce champ est obligatoire";
+                    e.preventDefault();
+                }else{
+                    document.getElementById(span).innerText=" ";
                 }
             }
-            return false;
-        });
-    }
+        }
+        return false;
+    });
 
-     validFormChambre();
-     valideEtudiant();  
+    validFormChambre();
+     
 })
 
